@@ -118,6 +118,50 @@
 				</aside>
 			  </section>
 
+			  <section data-background-color="#00008b" data-auto-animate>			
+				<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>					
+					<img src="http://example.com/bank.php/?action=transfer&target=
+					attacker_account">
+
+							</code></pre>
+				<aside class="notes">
+					In the case of CSRF based on GET requests, the attacker can simply use an image tag (or any other tag that allows for cross-site requests) on a malicious page:
+					When the user visits the page with the above image tag (for example, after clicking a malicious link), the user’s browser tries to open the image but instead makes a GET request to the targeted site, thus performing a malicious action while logged into the user’s account. 
+					Assuming that the user is authenticated on example.com, the web application will be unable to differentiate between a legitimate user request and a malicious request, since they are both sent from the same browser.
+				</aside>
+			  </section>
+
+			  <section data-background-color="#00008b" data-auto-animate>			
+				<ul>
+					<li>The attacker's page will trigger an HTTP request to the vulnerable web site.</li>				
+				</ul>
+				<aside class="notes">
+					If a victim user visits the attacker's web page, the following will happen:
+					The attacker's page will trigger an HTTP request to the vulnerable web site.				
+				</aside>
+			  </section>
+
+
+			  <section data-background-color="#00008b" data-auto-animate>			
+				<ul>
+					<li>The attacker's page will trigger an HTTP request to the vulnerable web site.</li>
+					<li>If the user is logged in to the vulnerable web site, their browser will automatically include their session cookie in the request. </li>
+				</ul>
+				<aside class="notes">
+					If the user is logged in to the vulnerable web site, their browser will automatically include their session cookie in the request.
+				</aside>
+			  </section>
+
+			  <section data-background-color="#00008b" data-auto-animate>			
+				<ul>
+					<li>The attacker's page will trigger an HTTP request to the vulnerable web site.</li>
+					<li>If the user is logged in to the vulnerable web site, their browser will automatically include their session cookie in the request. </li>
+					<li>The vulnerable web site will process the request in the normal way, treat it as having been made by the victim user, and change their email address. </li>		
+				</ul>
+				<aside class="notes">
+				The vulnerable web site will process the request in the normal way, treat it as having been made by the victim user, and change their email address.
+				</aside>
+			  </section>			
 		</div>
 
 		<script src="dist/reveal.js"></script>
